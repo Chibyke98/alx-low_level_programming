@@ -1,36 +1,31 @@
 #include <stdio.h>
 
 /**
- * main - Prints numbers between 00 to 89.
+ * main - Prints combination of numbers
  *
- * Return: Always 0 (Success)
+ * Return: Always (Success)
  */
 int main(void)
 {
-		int i, e;
+	int c, i;
 
-		i = 48;
-		e = 48;
-
-		while (e < 58)
+	for (c = '0'; c <= '9'; c++)
+	{
+		for (i = '0'; i <= '9'; i++)
 		{
-			i = 48;
-			while (i < 58)															{
-				if (e != i && e < i)
+			if (c < i)
+			{
+				putchar(c);
+				putchar(i);
+
+				if (c != '8' || (c == '8' && i != '9'))
 				{
-					putchar(e);
-					putchar(i);
-					if (i == 57 && e == 56)
-					{
-						break;
-					}
 					putchar(',');
 					putchar(' ');
 				}
-				i++;
 			}
-			e++;
 		}
-		putchar('\n');
-		return (0);
+	}
+	putchar('\n');
+	return (0);
 }
